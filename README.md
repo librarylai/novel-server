@@ -2,7 +2,7 @@
 
 啟動： `yarn start:dev`
 
-取得 Line Icon 圖片請使用 `puppeteerLineIcon()`
+取得 Line Emoji 圖片請使用 `puppeteerLineEmoji()`
 取得 小說文字 請使用 `puppeteerNovel()`
 
 ## 技術重點

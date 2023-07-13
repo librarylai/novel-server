@@ -5,8 +5,8 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 const fs = require('fs/promises')
 import { puppeteerNovel } from './utils/puppeteer/novel'
-import { puppeteerLineIcon } from './utils/puppeteer/lineIcon'
-import { formatLineIconContent } from './utils/fs/formatLineIconContent'
+import { puppeteerLineEmoji } from './utils/puppeteer/lineEmoji'
+import { formatLineEmojiContent } from './utils/fs/formatLineEmojiContent'
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
 
@@ -27,9 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 ;(async () => {
-  const res = await puppeteerLineIcon()
+  const res = await puppeteerLineEmoji()
   fs.truncate(LINE_ICON_FILE_PATH, 0)
-  const mdStr = formatLineIconContent(res)
+  const mdStr = formatLineEmojiContent(res)
   await fs.writeFile(LINE_ICON_FILE_PATH, mdStr, { flag: 'a' }, (err) => {
     console.log('The file has been saved!')
   })

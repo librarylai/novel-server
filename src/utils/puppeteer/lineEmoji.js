@@ -38,7 +38,7 @@ async function getLineUrlAndIconId(page) {
   return data
 }
 
-export const puppeteerLineIcon = async (url = LINE_ICON_URL) => {
+export const puppeteerLineEmoji = async (url = LINE_ICON_URL) => {
   // 啟動瀏覽器
   const browser = await puppeteer.launch()
 

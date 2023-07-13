@@ -1,4 +1,4 @@
-export function formatLineIconContent(data) {
+export function formatLineEmojiContent(data) {
   let mdStr = ''
   data.forEach((item, index) => {
     mdStr += `${index + 1}. ${item.code}\n ${item.backgroundUrl}\n`
