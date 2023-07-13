@@ -1,6 +1,9 @@
 import puppeteer from 'puppeteer'
 import * as cheerio from 'cheerio'
-export const puppeteerNovel = async (url) => {
+
+const NOVEL_URL = 'https://t.uukanshu.com/read.aspx?tid=65713&sid=10962'
+
+export const puppeteerNovel = async (url = NOVEL_URL) => {
   // 啟動瀏覽器
   const browser = await puppeteer.launch()
 

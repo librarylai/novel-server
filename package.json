@@ -5,7 +5,7 @@
   "scripts": {
     "start:dev": "nodemon --exec babel-node src/app.js",
     "build": "rimraf dist && babel src/ --out-dir dist  --copy-files",
-    "server": "babel-node ./src/bin/www",
+    "server": "nodemon --exec babel-node ./bin/www",
     "server:prod": "node ./dist/bin/www",
     "prod": "NODE_ENV=production npm-run-all clean build server:prod"
   },

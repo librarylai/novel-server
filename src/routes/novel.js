@@ -1,4 +1,4 @@
-import { puppeteerNovel } from '../utils/puppeteer'
+import { puppeteerNovel } from '../utils/puppeteer/novel'
 
 router.get('/', async (req, res, next) => {
   const param = req.body.url

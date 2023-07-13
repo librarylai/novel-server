@@ -3,10 +3,14 @@ var express = require('express')
 var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
-import { puppeteerNovel } from './utils/puppeteer'
-
+const fs = require('fs/promises')
+import { puppeteerNovel } from './utils/puppeteer/novel'
+import { puppeteerLineIcon } from './utils/puppeteer/lineIcon'
+import { formatLineIconContent } from './utils/fs/formatLineIconContent'
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
+
+const LINE_ICON_FILE_PATH = path.join(__dirname, '../lineIcon.md')
 
 var app = express()
 
@@ -23,8 +27,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 ;(async () => {
-  const res = await puppeteerNovel('https://t.uukanshu.com/read.aspx?tid=65713&sid=10962')
-  console.log('res', res)
+  const res = await puppeteerLineIcon()
+  fs.truncate(LINE_ICON_FILE_PATH, 0)
+  const mdStr = formatLineIconContent(res)
+  await fs.writeFile(LINE_ICON_FILE_PATH, mdStr, { flag: 'a' }, (err) => {
+    console.log('The file has been saved!')
+  })
 })()
 
 // catch 404 and forward to error handler
