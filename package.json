@@ -10,6 +10,7 @@
     "prod": "NODE_ENV=production npm-run-all clean build server:prod"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

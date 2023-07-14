@@ -8,9 +8,9 @@ function getBackgroundUrl(elStyles) {
   const backgroundUrl = regexp.exec(elStyles)
   return backgroundUrl[1].toString()
 }
-
+// 點擊 Line Emoji 網站的 Show all button
 async function clickShowMoreButton(page) {
-  const buttons = await page.$$('.emoji-grid.mt-3 button') // 获取所有按钮元素
+  const buttons = await page.$$('.emoji-grid.mt-3 button') // 抓取所有按钮元素
   let i = 0
   for (let showBtn of buttons) {
     console.log('click', i)
@@ -19,7 +19,7 @@ async function clickShowMoreButton(page) {
   }
   console.log('done')
 }
-
+// 取得 Line Emoji 的背景圖片 url 與 code
 async function getLineUrlAndIconId(page) {
   let data = []
   // 等待點擊完所有的 show all button 後再來取得 取得 html ,回傳全部的html包含doctype
