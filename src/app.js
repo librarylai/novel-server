@@ -10,6 +10,7 @@ import { formatLineEmojiContent } from './utils/fs/formatLineEmojiContent'
 import { downloadImageByUrl } from './utils/fs/downloadImageByUrl'
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
+var puppeteerRouter = require('./routes/puppeteer')
 
 const LINE_ICON_FILE_PATH = path.join(__dirname, '../lineIcon.md')
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/crawler', puppeteerRouter)
 ;(async () => {
   await downloadImageByUrl('https://stickershop.line-scdn.net/sticonshop/v1/sticon/5ac2213e040ab15980c9b447/android/005.png?v=1', '001')
   const res = await puppeteerLineEmoji()
