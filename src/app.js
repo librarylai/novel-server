@@ -6,6 +6,7 @@ var logger = require('morgan')
 const fs = require('fs/promises')
 import { puppeteerNovel } from './utils/puppeteer/novel'
 import { puppeteerLineEmoji } from './utils/puppeteer/lineEmoji'
+import { puppeteerNikeLogin } from './utils/puppeteer/nike'
 import { formatLineEmojiContent } from './utils/fs/formatLineEmojiContent'
 import { downloadImageByUrl } from './utils/fs/downloadImageByUrl'
 var indexRouter = require('./routes/index')
@@ -37,6 +38,9 @@ app.use('/crawler', puppeteerRouter)
   await fs.writeFile(LINE_ICON_FILE_PATH, mdStr, { flag: 'a' }, (err) => {
     console.log('The file has been saved!')
   })
+
+  // 測試 Nike 登入爬蟲
+  // await puppeteerNikeLogin()
 })()
 
 // catch 404 and forward to error handler

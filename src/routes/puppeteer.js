@@ -1,6 +1,6 @@
 import { puppeteerLineEmoji } from '../utils/puppeteer/lineEmoji'
-import express from 'express'
-router = express.Router()
+var express = require('express')
+var router = express.Router()
 
 router.get('/lineEmoji', async (req, res, next) => {
   const result = await puppeteerLineEmoji()
@@ -10,3 +10,5 @@ router.get('/lineEmoji', async (req, res, next) => {
     console.log('The file has been saved!')
   })
 })
+
+module.exports = router
